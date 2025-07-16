@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeleteViewController" customModule="UINaviVC" customModuleProvider="target">
+            <connections>
+                <outlet property="deleteView" destination="sTe-Qi-Nmx" id="I7h-ST-LIG"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTe-Qi-Nmx">
+                    <rect key="frame" x="33.666666666666657" y="342" width="326" height="168"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hJ9-f0-BVw">
+                            <rect key="frame" x="0.0" y="20" width="326" height="132"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wYU-GU-yQP">
+                                    <rect key="frame" x="15" y="0.0" width="296" height="56"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sB3-jr-pk4">
+                                            <rect key="frame" x="87.666666666666686" y="0.0" width="120.66666666666669" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure, you want to delete?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TR-wq-bjF">
+                                            <rect key="frame" x="21.666666666666671" y="32" width="252.66666666666663" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="Neutral3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9Wt-T7-fad">
+                                    <rect key="frame" x="15" y="76" width="296" height="56"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgu-sY-39k">
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="48"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="DNd-Wi-hk8"/>
+                                            </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="filled" title="Cancel" cornerStyle="large">
+                                                <backgroundConfiguration key="background" strokeOutset="0.0">
+                                                    <color key="strokeColor" name="Primary1"/>
+                                                </backgroundConfiguration>
+                                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                                <color key="baseForegroundColor" name="Primary1"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="cancelButton:" destination="-1" eventType="touchUpInside" id="PKl-OT-oNf"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thb-2K-Zjc">
+                                            <rect key="frame" x="156" y="0.0" width="140" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="140" id="Q2M-3Q-qb8"/>
+                                                <constraint firstAttribute="height" constant="48" id="r5s-Fe-ZHV"/>
+                                            </constraints>
+                                            <color key="tintColor" name="Primary1"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="filled" title="Yes" cornerStyle="large"/>
+                                            <connections>
+                                                <action selector="yesButton:" destination="-1" eventType="touchUpInside" id="67l-xR-1h5"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="wYU-GU-yQP" secondAttribute="trailing" constant="15" id="Hzd-HX-f1S"/>
+                                <constraint firstItem="wYU-GU-yQP" firstAttribute="leading" secondItem="hJ9-f0-BVw" secondAttribute="leading" constant="15" id="QW7-0O-WQc"/>
+                                <constraint firstAttribute="trailing" secondItem="9Wt-T7-fad" secondAttribute="trailing" constant="15" id="zDo-uL-uE3"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="168" id="16t-s5-mX1"/>
+                        <constraint firstItem="hJ9-f0-BVw" firstAttribute="leading" secondItem="sTe-Qi-Nmx" secondAttribute="leading" id="CWV-Oe-d34"/>
+                        <constraint firstItem="hJ9-f0-BVw" firstAttribute="top" secondItem="sTe-Qi-Nmx" secondAttribute="top" constant="20" id="Vcg-Xp-mar"/>
+                        <constraint firstAttribute="trailing" secondItem="hJ9-f0-BVw" secondAttribute="trailing" id="W9h-E9-h2B"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="sTe-Qi-Nmx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TRc-1R-Xbi"/>
+                <constraint firstItem="sTe-Qi-Nmx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="z1x-vb-TQU"/>
+            </constraints>
+            <point key="canvasLocation" x="55.725190839694655" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Neutral3">
+            <color red="0.61176470588235299" green="0.61960784313725492" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary1">
+            <color red="1" green="0.38823529411764707" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
