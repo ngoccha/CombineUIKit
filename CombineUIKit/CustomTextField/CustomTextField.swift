@@ -13,6 +13,7 @@ class CustomTextField: UIView {
     
     @IBOutlet weak var textFieldCustom: UITextField!
     
+    @IBOutlet weak var textFieldViewCustom: UIView!
     
     override init(frame: CGRect) {
             super.init(frame: frame)

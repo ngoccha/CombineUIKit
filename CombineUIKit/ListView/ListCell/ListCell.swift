@@ -13,6 +13,8 @@ class ListCell: UITableViewCell {
     
     @IBOutlet weak var wAh: UILabel!
     
+    @IBOutlet weak var BoundView: UIView!
+    
     @IBAction func toProfile(_ sender: UIButton) {
         onProfileTapped?()
     }
@@ -21,6 +23,7 @@ class ListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
 
     }
     

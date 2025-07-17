@@ -5,14 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--InformationVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="InformationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="InformationVC" customModule="UINaviVC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InformationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="InformationVC" customModule="CombineUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,13 +22,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="37y-7l-jan">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="128"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3V-A6-Iqg" customClass="CustomTextField" customModule="UINaviVC" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3V-A6-Iqg" customClass="CustomTextField" customModule="CombineUIKit" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="174.66666666666666" height="128"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="Background"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3i-Uc-dlr" customClass="CustomTextField" customModule="UINaviVC" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3i-Uc-dlr" customClass="CustomTextField" customModule="CombineUIKit" customModuleProvider="target">
                                                 <rect key="frame" x="186.66666666666663" y="0.0" width="174.33333333333337" height="128"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="Background"/>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -41,8 +40,8 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVD-v6-Tl5">
                                                         <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" name="Neutral1"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <color key="textColor" name="Neutral5"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Mub-0I-Nwl">
@@ -62,13 +61,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WeM-Xf-B4p">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="128"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vfv-t7-PWh" customClass="CustomTextField" customModule="UINaviVC" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vfv-t7-PWh" customClass="CustomTextField" customModule="CombineUIKit" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="174.66666666666666" height="128"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="Background"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEo-48-Hcx" customClass="CustomTextField" customModule="UINaviVC" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEo-48-Hcx" customClass="CustomTextField" customModule="CombineUIKit" customModuleProvider="target">
                                                         <rect key="frame" x="186.66666666666663" y="0.0" width="174.33333333333337" height="128"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="Background"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
@@ -84,21 +83,23 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9w-4K-Uq1">
-                                <rect key="frame" x="24.666666666666657" y="712" width="344" height="56"/>
+                                <rect key="frame" x="16" y="712" width="361" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="344" id="RMu-eo-3ZB"/>
                                     <constraint firstAttribute="height" constant="56" id="ZsJ-82-w4n"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Update"/>
+                                <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="updateButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4pp-r3-y5k"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
+                            <constraint firstItem="m9w-4K-Uq1" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4mS-5f-KQ0"/>
+                            <constraint firstItem="m9w-4K-Uq1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="J61-ka-HHM"/>
                             <constraint firstItem="78J-I5-hbA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="NoX-dQ-BXb"/>
                             <constraint firstItem="78J-I5-hbA" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="fC2-CB-Alo"/>
                             <constraint firstItem="78J-I5-hbA" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="miN-jQ-Ezs"/>
@@ -140,11 +141,11 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="Neutral1">
-            <color red="0.18431372549019609" green="0.20784313725490197" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Background">
+            <color red="0.96078431372549022" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Neutral5">
+            <color red="0.34901960784313724" green="0.38039215686274508" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

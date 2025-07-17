@@ -9,9 +9,9 @@ import UIKit
 import Combine
 
 
-class ViewController: UIViewController {
-    private let manager = ProfileManager.shared
-    private var cancel = Set<AnyCancellable>()
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
+    let manager = ProfileManager.shared
+    var cancel = Set<AnyCancellable>()
     var indexPath: IndexPath?
     
     var profile: Profile?
@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
+    
+    @IBOutlet weak var editOutletButton: UIButton!
+    @IBOutlet weak var BoundView: UIView!
     
     @IBAction func toCalc(_ sender: UIButton) {
         let calcStoryboard = UIStoryboard(name: "InformationVC", bundle: nil)
@@ -57,12 +60,20 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(infoVC, animated: true)
     }
 
-//    var onDeleteProfile: ((Int) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Profile"
-        navigationItem.rightBarButtonItem = .init(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(deleteProfile))
+        navigationItem.leftBarButtonItem = .init(image: UIImage(named: "Left"), style: .plain, target: self, action: #selector(back))
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navigationItem.leftBarButtonItem?.tintColor = .neutral2
+        navigationItem.rightBarButtonItem = .init(image: UIImage(named: "Delete"), style: .plain, target: self, action: #selector(deleteProfile))
+        navigationItem.rightBarButtonItem?.tintColor = .delete
+        
+        BoundView.layer.cornerRadius = 16
+        
+        editOutletButton.layer.cornerRadius = 16
+        editOutletButton.backgroundColor = .primary1
         
         ProfileManager.shared.profiles
             .sink { [weak self] profiles in
@@ -86,25 +97,34 @@ class ViewController: UIViewController {
         genderLabel.text = profile.gender
     }
 
-    
-    @objc func deleteProfile() {
-        guard let index = indexPath?.row else { return }
-
-        var currentProfiles = manager.profiles.value
-        guard currentProfiles.indices.contains(index) else { return }
-
-        currentProfiles.remove(at: index)
-        manager.profiles.send(currentProfiles)
-
+    @objc func back() {
         navigationController?.popViewController(animated: true)
     }
-   }
+    
+    @objc func deleteProfile() {
+        let deleteVC = DeleteVC()
+        deleteVC.indexPath = self.indexPath
+        
+//        let deleteNaviVC = UINavigationController(rootViewController: deleteVC)
+//        deleteNaviVC.modalPresentationStyle = .fullScreen
+            
+        deleteVC.onDelete = { [weak self] in
+            guard let self = self else { return }
+                
+            if !ProfileManager.shared.profiles.value.contains(self.profile!) {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+        self.present(deleteVC, animated: true)
 
-
-
-//extension InformationVC: ResultDelegate {
-   // func update(result: String) {
-      
-  //  }
-//}
+//        guard let index = indexPath?.row else { return }
+//        var current = manager.profiles.value
+//        guard current.indices.contains(index) else { return }
+//        current.remove(at: index)
+//        manager.profiles.send(current)
+        
+//        navigationController?.popViewController(animated: true)
+    }
+}
 

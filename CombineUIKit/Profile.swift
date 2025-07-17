@@ -6,7 +6,7 @@
 //
 
 
-struct Profile {
+struct Profile: Equatable {
     var firstName: String
     var lastName: String
     var bmi: Double

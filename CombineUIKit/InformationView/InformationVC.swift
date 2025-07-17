@@ -12,7 +12,7 @@ import Combine
    // func update(result: String)
 //}
 
-class InformationVC: UIViewController {
+class InformationVC: UIViewController, UIGestureRecognizerDelegate {
     private let manager = ProfileManager.shared
     var indexPath: IndexPath?
 
@@ -75,16 +75,33 @@ class InformationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Information"
-        navigationItem.backButtonTitle = ""
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Left"), style: .plain, target: self, action: #selector(cancel))
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navigationItem.leftBarButtonItem?.tintColor = .neutral2
         
-        firstNameCustom.labelCustom.text = "First Name"
+        firstNameCustom.labelCustom.text = "First name"
         firstNameCustom.textFieldCustom.placeholder = "Enter first name"
-        lastNameCustom.labelCustom.text = "Last Name"
+        firstNameCustom.textFieldViewCustom.layer.cornerRadius = 16
+        firstNameCustom.textFieldViewCustom.layer.borderWidth = 1
+        firstNameCustom.textFieldViewCustom.layer.borderColor = UIColor.neutral4.cgColor
+        
+        lastNameCustom.labelCustom.text = "Last name"
         lastNameCustom.textFieldCustom.placeholder = "Enter last name"
+        lastNameCustom.textFieldViewCustom.layer.cornerRadius = 16
+        lastNameCustom.textFieldViewCustom.layer.borderWidth = 1
+        lastNameCustom.textFieldViewCustom.layer.borderColor = UIColor.neutral4.cgColor
+        
         heightCustom.labelCustom.text = "Height"
         heightCustom.textFieldCustom.placeholder = "Cm"
+        heightCustom.textFieldViewCustom.layer.cornerRadius = 16
+        heightCustom.textFieldViewCustom.layer.borderWidth = 1
+        heightCustom.textFieldViewCustom.layer.borderColor = UIColor.neutral4.cgColor
+        
         weightCustom.labelCustom.text = "Weight"
         weightCustom.textFieldCustom.placeholder = "Kg"
+        weightCustom.textFieldViewCustom.layer.cornerRadius = 16
+        weightCustom.textFieldViewCustom.layer.borderWidth = 1
+        weightCustom.textFieldViewCustom.layer.borderColor = UIColor.neutral4.cgColor
         
         completeButtonOutlet.layer.cornerRadius = 16
         
@@ -95,6 +112,7 @@ class InformationVC: UIViewController {
 
         completeButtonOutlet.backgroundColor = .neutral3
         completeButtonOutlet.tintColor = .white
+        
         
         if let indexPath = indexPath {
                let profile = ProfileManager.shared.profiles.value[indexPath.row]
@@ -107,6 +125,9 @@ class InformationVC: UIViewController {
         
     }
     		
+    @objc func cancel() {
+        navigationController?.popViewController(animated: true)
+    }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         let firstNameFilled = !(firstNameCustom.textFieldCustom.text?.isEmpty ?? true)
@@ -116,10 +137,10 @@ class InformationVC: UIViewController {
         
         if firstNameFilled && lastNameFilled && heightFilled && weightFilled {
             completeButtonOutlet.isEnabled = true
-            completeButtonOutlet.backgroundColor = UIColor(named: "Primary1")
+            completeButtonOutlet.backgroundColor = UIColor.primary1
         } else {
             completeButtonOutlet.isEnabled = false
-            completeButtonOutlet.backgroundColor = UIColor(named: "Neutral3")
+            completeButtonOutlet.backgroundColor = UIColor.neutral3
         }
       }
     

@@ -8,8 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListVC" customModule="UINaviVC" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListVC" customModule="CombineUIKit" customModuleProvider="target">
             <connections>
+                <outlet property="addProfileButtonOutlet" destination="FGY-vY-4Mz" id="PkA-6N-2zX"/>
+                <outlet property="emptyLabel" destination="5wP-fm-PFR" id="bRY-xZ-HzH"/>
                 <outlet property="emptyView" destination="Vnw-qG-iEf" id="bm8-Ue-BcN"/>
                 <outlet property="listTableView" destination="Jxe-e9-QX7" id="sjp-xc-8bt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,34 +22,38 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jxe-e9-QX7">
-                    <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jxe-e9-QX7">
+                    <rect key="frame" x="0.0" y="142" width="393" height="642"/>
                     <color key="backgroundColor" name="Background"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vnw-qG-iEf">
                     <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aFs-Z6-Py4">
-                            <rect key="frame" x="61.666666666666657" y="213.66666666666669" width="270" height="239"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aFs-Z6-Py4">
+                            <rect key="frame" x="61.666666666666657" y="202.66666666666666" width="270" height="260.66666666666674"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="box" translatesAutoresizingMaskIntoConstraints="NO" id="KGs-2H-E9s">
                                     <rect key="frame" x="71" y="0.0" width="128" height="128"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty folder, Tap “Add Profile” button to create profile now." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wP-fm-PFR">
-                                    <rect key="frame" x="0.0" y="144" width="270" height="40.666666666666657"/>
+                                    <rect key="frame" x="0.0" y="148" width="270" height="40.666666666666657"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="270" id="UfZ-Qn-XpM"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Neutral5"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGY-vY-4Mz">
-                                    <rect key="frame" x="81.333333333333343" y="200.66666666666669" width="107.33333333333334" height="38.333333333333343"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Add Profile">
-                                        <color key="baseBackgroundColor" name="Primary1"/>
-                                    </buttonConfiguration>
+                                    <rect key="frame" x="54" y="208.66666666666669" width="162" height="52"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="162" id="4WQ-El-Ry5"/>
+                                        <constraint firstAttribute="height" constant="52" id="iTk-Gh-vEw"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Add Profile"/>
                                     <connections>
                                         <action selector="addProfileButton:" destination="-1" eventType="touchUpInside" id="UtQ-we-myz"/>
                                     </connections>
@@ -69,9 +75,8 @@
                 <constraint firstItem="Jxe-e9-QX7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FUd-JV-Igt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jxe-e9-QX7" secondAttribute="trailing" id="OWd-Pp-ob8"/>
                 <constraint firstItem="Vnw-qG-iEf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QBX-nJ-sgF"/>
+                <constraint firstItem="Jxe-e9-QX7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="XQ1-8j-Ugz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Vnw-qG-iEf" secondAttribute="bottom" id="aj0-gt-sm6"/>
-                <constraint firstItem="Jxe-e9-QX7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="eOh-U6-cPf"/>
-                <constraint firstItem="Jxe-e9-QX7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="iX5-cY-Ess"/>
                 <constraint firstItem="Vnw-qG-iEf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="m0R-H5-ncl"/>
                 <constraint firstItem="Jxe-e9-QX7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nUC-ud-aRe"/>
                 <constraint firstItem="Jxe-e9-QX7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rlZ-Yy-11Y"/>
@@ -86,8 +91,8 @@
         <namedColor name="Background">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Primary1">
-            <color red="1" green="0.38823529411764707" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Neutral5">
+            <color red="0.34901960784313724" green="0.38039215686274508" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

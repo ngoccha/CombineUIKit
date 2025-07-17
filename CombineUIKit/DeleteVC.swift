@@ -8,26 +8,38 @@
 import UIKit
 
 class DeleteVC: UIViewController {
-    
-    var yesAction: (() -> Void)?
+    var indexPath: IndexPath?
+    var current = ProfileManager.shared.profiles.value
+
 
     @IBOutlet weak var deleteView: UIView!
+    
+    @IBOutlet var superView: UIView!
     
     @IBAction func cancelButton(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
-//    @IBAction func yesButton(_ sender: UIButton) {
-//       
-//    }
+    @IBAction func yesButton(_ sender: UIButton) {
+        deleteProfile()
+        
+        dismiss(animated: true) {
+            self.onDelete?()
+        }
+    }
     
-    var onDeleteProfile: ((Int) -> Void)?
+    var onDelete: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         deleteView.layer.cornerRadius = 20
-        // Do any additional setup after loading the view.
     }
-
+    
+    public func deleteProfile() {
+        guard let index = indexPath?.row else { return }
+        guard current.indices.contains(index) else { return }
+        current.remove(at: index)
+        ProfileManager.shared.profiles.send(current)
+    }
 }

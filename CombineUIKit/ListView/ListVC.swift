@@ -14,10 +14,12 @@ class ListVC: UIViewController {
 
     var profile: Profile?
     var profiles: [Profile] = []
-        
-
+    
+    @IBOutlet weak var emptyLabel: UILabel!
+    
     @IBOutlet weak var emptyView: UIView!
     
+    @IBOutlet weak var addProfileButtonOutlet: UIButton!
     
     @IBAction func addProfileButton(_ sender: UIButton) {
        addProfile()
@@ -29,7 +31,31 @@ class ListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "List"
-        navigationItem.rightBarButtonItem = .init(image: UIImage(systemName: "plus.circle.fill"), style: .plain, target: self, action: #selector(addProfile))
+    
+        let titleFont = UIFont.systemFont(ofSize: 20, weight: .bold)
+
+        navigationController?.navigationBar.titleTextAttributes = [
+                .font: titleFont,
+                .foregroundColor: UIColor.neutral1
+        ]
+
+        //
+        let fullText = "Empty folder, Tap \"Add Profile\" button to create profile now."
+        let attributedText = NSMutableAttributedString(string: fullText)
+        let attributedStyle = NSMutableParagraphStyle()
+        attributedStyle.minimumLineHeight = 24
+        if let range = fullText.range(of: "\"Add Profile\"") {      let nsRange = NSRange(range, in: fullText)
+            attributedText.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .semibold), range: nsRange)
+            attributedText.addAttribute(.foregroundColor, value: UIColor.primary1, range: nsRange)
+        }
+        attributedText.addAttribute(.paragraphStyle, value: attributedStyle, range: NSRange(location: 0, length: attributedText.length))
+        emptyLabel.attributedText = attributedText
+        emptyLabel.textAlignment = .center
+        //code của chatgpt, sau này sẽ là của mình :Đ
+
+        
+        addProfileButtonOutlet.layer.cornerRadius = 16
+        addProfileButtonOutlet.backgroundColor = .primary1
         
         listTableView.register(UINib(nibName: "ListCell", bundle: nil), forCellReuseIdentifier: "ListCell")
         
@@ -41,10 +67,19 @@ class ListVC: UIViewController {
                        self?.profiles = profiles
                        self?.listTableView.reloadData()
                        self?.emptyView.isHidden = !profiles.isEmpty
+                       self?.updateRightBarButton()
                    }
                    .store(in: &cancel)
     }
     
+    func updateRightBarButton() {
+        if !(profiles.count == 0) {
+            navigationItem.rightBarButtonItem = .init(image: UIImage(systemName: "plus.circle.fill"), style: .plain, target: self, action: #selector(addProfile))
+            navigationItem.rightBarButtonItem?.tintColor = .primary1
+        } else {
+            navigationItem.rightBarButtonItem = nil
+        }
+    }
     
     @objc func addProfile() {
         let infoStoryboard = UIStoryboard(name: "InformationVC", bundle: nil)
@@ -58,11 +93,9 @@ class ListVC: UIViewController {
 //            emptyView.isHidden = !profiles.isEmpty
 //        }
         
-        
         self.navigationController?.pushViewController(infoVC, animated: true)
-        
     }
-    
+
 }
 
 extension ListVC : UITableViewDelegate, UITableViewDataSource {
@@ -78,7 +111,10 @@ extension ListVC : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! ListCell
         
         let profile = profiles[indexPath.row]
-        let weightAndHeight = "W: \(profile.weight) kg - H: \(profile.height) cm"
+        cell.BoundView.layer.cornerRadius = 16
+        cell.BoundView.layer.borderWidth = 0.5
+        cell.BoundView.layer.borderColor = UIColor.neutral4.cgColor
+        let weightAndHeight = "W: \(profile.weight) kg  -   H: \(profile.height) cm"
         cell.configCell(name: profile.fullName, weightAndHeight: weightAndHeight)
 
         
