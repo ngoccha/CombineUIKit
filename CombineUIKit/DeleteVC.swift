@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeleteViewController: UIViewController {
+class DeleteVC: UIViewController {
     
     var yesAction: (() -> Void)?
 
